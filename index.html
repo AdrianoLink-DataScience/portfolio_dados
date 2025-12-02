@@ -4,24 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Adriano - Analista de Dados especializado em Crédito e Investimentos.">
+    <meta name="description" content="Portfólio de Adriano - Analista de Dados especializado em Python, Dashboards e Business Intelligence.">
     <title>Adriano | Analista de Dados</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Variáveis para consistência (Clean Code) */
+        /* === PRINCÍPIOS DE CLEAN CODE: Variáveis para manutenção fácil === */
         :root {
-            --primary-color: #0b0a07; /* Preto suave */
-            --accent-color: #2ca00c; /* Seu verde original, mas usado estrategicamente */
-            --bg-color: #f4f4f4; /* Cinza muito claro para o fundo */
-            --card-bg: #ffffff;
-            --text-color: #333333;
-            --text-light: #ffffff;
+            --primary-color: #0b0a07;   /* Preto suave/Carvão */
+            --accent-color: #2ca00c;    /* Seu Verde Original (usado com moderação) */
+            --bg-color: #f4f4f4;        /* Fundo cinza claro para descanso visual */
+            --card-bg: #ffffff;         /* Branco puro para destacar conteúdo */
+            --text-color: #333333;      /* Texto principal */
             --nav-bg: #ffffff;
         }
 
-        /* Reset básico */
+        /* Reset Global */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -36,12 +35,12 @@
             scroll-behavior: smooth;
         }
 
-        /* Header Hero Section */
+        /* === HEADER === */
         header {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1a1a1a 100%);
             padding: 80px 20px;
             text-align: center;
-            color: var(--text-light);
+            color: #ffffff;
             border-bottom: 5px solid var(--accent-color);
         }
 
@@ -57,7 +56,7 @@
             opacity: 0.9;
         }
 
-        /* Navegação */
+        /* === NAVEGAÇÃO === */
         nav {
             background-color: var(--nav-bg);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -67,12 +66,13 @@
             display: flex;
             justify-content: center;
             padding: 15px 0;
+            flex-wrap: wrap; /* Garante que não quebre em telas pequenas */
         }
 
         nav a {
             color: var(--primary-color);
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 15px;
             font-weight: 500;
             text-transform: uppercase;
             font-size: 0.9em;
@@ -86,7 +86,7 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* Layout Geral */
+        /* === LAYOUT GERAL === */
         section {
             padding: 60px 20px;
             max-width: 1100px;
@@ -111,11 +111,11 @@
             border-radius: 2px;
         }
 
-        /* Cards e Containers */
+        /* === CARDS E GRID === */
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .card {
@@ -125,6 +125,9 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             border-left: 4px solid var(--accent-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -133,88 +136,107 @@
         }
 
         .card h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: var(--primary-color);
         }
 
-        /* Sobre Mim - Destaque */
-        #about p {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1em;
-            color: #555;
+        /* === ESTILO DOS PROJETOS (Botões e Tags) === */
+        .tech-tag {
+            font-size: 0.85em;
+            color: #666;
+            margin: 15px 0;
+            font-style: italic;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
         }
 
-        /* Habilidades (Tags) */
+        .btn-project {
+            display: inline-block;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-project:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* === SKILLS E TAGS === */
         .skills-list {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .skills-list li {
             background-color: #e0e0e0;
             color: #333;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             font-weight: 500;
             font-size: 0.9em;
         }
         
-        /* Destaque para ferramentas principais */
         .skills-list li.highlight {
             background-color: var(--accent-color);
             color: white;
         }
 
-        /* Contato */
+        /* === CONTATO === */
         .contact-icons {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .contact-icons a img {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             transition: transform 0.3s;
-            filter: grayscale(100%); /* Estilo clean */
+            filter: grayscale(100%);
+            opacity: 0.8;
         }
 
         .contact-icons a:hover img {
             transform: scale(1.1);
-            filter: grayscale(0%); /* Cor ao passar o mouse */
+            filter: grayscale(0%);
+            opacity: 1;
         }
         
         .email-link {
             display: block;
             text-align: center;
-            font-size: 1.1em;
-            margin-bottom: 20px;
+            font-size: 1.2em;
             color: var(--accent-color);
             text-decoration: none;
             font-weight: bold;
         }
 
-        /* Footer */
+        /* === FOOTER === */
         footer {
             background-color: var(--primary-color);
             color: #888;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px 20px;
+            margin-top: 50px;
             font-size: 0.9em;
         }
 
-        /* Responsividade */
+        /* === RESPONSIVIDADE === */
         @media (max-width: 768px) {
             header h1 { font-size: 2.2em; }
-            nav { flex-wrap: wrap; }
-            nav a { margin: 5px 10px; }
+            section { padding: 40px 15px; }
             .card-container { grid-template-columns: 1fr; }
         }
     </style>
@@ -243,34 +265,36 @@
         <a href="#about">Sobre</a>
         <a href="#experience">Experiência</a>
         <a href="#projects">Projetos</a>
-        <a href="#skills">Stack</a>
-        <a href="#courses">Educação</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#courses">Cursos</a>
         <a href="#contact">Contato</a>
     </nav>
 
     <section id="about">
         <h2>Sobre Mim</h2>
-        <p>
-            Especialista em transformar dados complexos em decisões estratégicas. 
-            Com foco em produtos de crédito e investimentos, utilizo estatística e programação 
-            para identificar tendências e otimizar resultados de negócio.
-        </p>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1em; color: #555;">
+            <p>
+                Analista de dados focado em transformar informações brutas em estratégias de negócio. 
+                Tenho experiência em produtos de crédito e investimentos, utilizando estatística e programação 
+                para identificar tendências, otimizar processos e facilitar a tomada de decisão.
+            </p>
+        </div>
     </section>
 
     <section id="experience">
         <h2>Experiência Profissional</h2>
         <div class="card-container">
             <div class="card">
-                <h3>Analista de Dados Pleno</h3>
-                <p><strong>Empresa XYZ</strong> | Atual</p>
+                <h3>Analista de Dados</h3>
+                <p><strong>Empresa XYZ</strong> | Período</p>
                 <br>
-                <p>Liderança na análise de grandes volumes de dados financeiros (Big Data). Desenvolvimento de ETLs automatizados e relatórios que reduziram o tempo de decisão da diretoria em 30%.</p>
+                <p>Responsável por analisar grandes volumes de dados financeiros. Desenvolvimento de ETLs automatizados e relatórios estratégicos que apoiam a diretoria.</p>
             </div>
             <div class="card">
-                <h3>Estagiário em Dados</h3>
-                <p><strong>Empresa ABC</strong> | 2022 - 2023</p>
+                <h3>Estagiário em Análise de Dados</h3>
+                <p><strong>Empresa ABC</strong> | Período</p>
                 <br>
-                <p>Criação de dashboards operacionais no Power BI. Implementação de KPIs de eficiência que resultaram na otimização de processos internos.</p>
+                <p>Suporte na criação de dashboards (Power BI) e relatórios operacionais. Foco em eficiência e otimização de processos internos.</p>
             </div>
         </div>
     </section>
@@ -278,16 +302,40 @@
     <section id="projects">
         <h2>Projetos em Destaque</h2>
         <div class="card-container">
+            
             <div class="card">
-                <h3>📈 Dashboard de Investimentos</h3>
-                <p>Monitoramento em tempo real de portfólios. Integração via API para atualização automática de cotações.</p>
-                <p style="margin-top:10px; font-size:0.9em;"><em>Tech: Power BI, SQL, Python</em></p>
+                <div>
+                    <h3>📊 Visualização & Tratamento</h3>
+                    <p>Exploração aprofundada das principais bibliotecas do ecossistema Python. Foco em limpeza de dados (Data Cleaning) e storytelling visual para facilitar a interpretação de insights.</p>
+                    <p class="tech-tag">Tech: Pandas, Matplotlib, Seaborn, Plotly</p>
+                </div>
+                <a href="https://github.com/AdrianoLink-DataScience/bibliotecas_visualizacao/blob/main/tratamento_e_visualiza%C3%A7%C3%A3o_de_dados.ipynb" target="_blank" class="btn-project">
+                    Ver no GitHub
+                </a>
             </div>
+
             <div class="card">
-                <h3>🤖 Modelo de Risco de Crédito</h3>
-                <p>Algoritmo de Machine Learning (Random Forest) para prever inadimplência, aumentando a assertividade da concessão de crédito.</p>
-                <p style="margin-top:10px; font-size:0.9em;"><em>Tech: Python (Scikit-Learn), Pandas</em></p>
+                <div>
+                    <h3>🏥 Análise de Saúde Pública (DF)</h3>
+                    <p>Estudo analítico sobre dados reais de cirurgias no Distrito Federal. Identificação de padrões em procedimentos médicos, volumetria e gestão de filas utilizando Python.</p>
+                    <p class="tech-tag">Tech: Análise Exploratória (EDA), Pandas, Dados Públicos</p>
+                </div>
+                <a href="https://github.com/AdrianoLink-DataScience/cirurgias-df/blob/main/csv_cirurgias.ipynb" target="_blank" class="btn-project">
+                    Ver no GitHub
+                </a>
             </div>
+
+            <div class="card">
+                <div>
+                    <h3>🛒 E-commerce Analytics</h3>
+                    <p>Simulação e análise de dados de comércio eletrônico. Monitoramento de KPIs de vendas, comportamento do consumidor e performance de produtos através de dados simulados.</p>
+                    <p class="tech-tag">Tech: Business Intelligence, Simulação, Python</p>
+                </div>
+                <a href="https://github.com/AdrianoLink-DataScience/E-commerce-Data-Simulator-Analytics/blob/main/E_commerce.ipynb" target="_blank" class="btn-project">
+                    Ver no GitHub
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -297,23 +345,25 @@
             <li class="highlight">Python</li>
             <li class="highlight">SQL</li>
             <li class="highlight">Power BI</li>
+            <li class="highlight">Pandas</li>
             <li>R</li>
             <li>Tableau</li>
             <li>Machine Learning</li>
             <li>Modelagem de Dados</li>
             <li>Git/GitHub</li>
-            <li>ETL</li>
+            <li>Storytelling</li>
         </ul>
     </section>
 
     <section id="courses">
-        <h2>Certificações</h2>
-        <div class="card-container">
-            <div class="card" style="text-align: center;">
+        <h2>Cursos e Certificações</h2>
+        <div class="card-container" style="justify-content: center; display: flex;">
+            <div class="card" style="text-align: center; max-width: 400px; width: 100%;">
                 <h3>Formação Análise de Dados</h3>
                 <p><strong>Alura</strong></p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #555;">Formação completa abrangendo estatística, visualização e programação.</p>
                 <br>
-                <a href="https://cursos.alura.com.br/user/adrianolink/fullCertificate/ad2167a8dad680a69c3eb7d26250f2f2" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 10px 20px; border-radius: 5px; display: inline-block; transition: 0.3s;">
+                <a href="https://cursos.alura.com.br/user/adrianolink/fullCertificate/ad2167a8dad680a69c3eb7d26250f2f2" target="_blank" class="btn-project" style="background-color: #fff; color: var(--accent-color); border: 2px solid var(--accent-color);">
                     Ver Certificado
                 </a>
             </div>
@@ -325,20 +375,21 @@
         <a href="mailto:datascience@adrianolink.com" class="email-link">datascience@adrianolink.com</a>
         
         <div class="contact-icons">
-            <a href="mailto:datascience@adrianolink.com" title="Email">
+            <a href="mailto:datascience@adrianolink.com" title="Enviar Email">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
             </a>
             <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" title="LinkedIn">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
             </a>
-            <a href="https://api.whatsapp.com/send?phone=5547996430982&text=Ol%C3%A1,%20vim%20pelo%20seu%20portf%C3%B3lio!" target="_blank" title="WhatsApp">
+            <a href="https://api.whatsapp.com/send?phone=5547996430982&text=Ol%C3%A1,%20gostei%20de%20seu%20portf%C3%B3lio!" target="_blank" title="WhatsApp">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Adriano | Analista de Dados. Desenvolvido com código limpo.</p>
+        <p>&copy; 2024 Adriano | Analista de Dados.</p>
+        <p style="font-size: 0.8em; margin-top: 5px; opacity: 0.7;">Desenvolvido com foco em performance e código limpo.</p>
     </footer>
 
 </body>
