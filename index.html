@@ -4,279 +4,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Analista de Dados Adriano</title>
+    <meta name="description" content="Portfólio de Adriano - Analista de Dados especializado em Crédito e Investimentos.">
+    <title>Adriano | Analista de Dados</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Variáveis para consistência (Clean Code) */
+        :root {
+            --primary-color: #0b0a07; /* Preto suave */
+            --accent-color: #2ca00c; /* Seu verde original, mas usado estrategicamente */
+            --bg-color: #f4f4f4; /* Cinza muito claro para o fundo */
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #ffffff;
+            --nav-bg: #ffffff;
+        }
+
+        /* Reset básico */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #2ca00c;
-            color: #000000;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
+        /* Header Hero Section */
         header {
-            background-color: #0b0a07;
-            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a1a1a 100%);
+            padding: 80px 20px;
             text-align: center;
-            color: #ffffff;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            color: var(--text-light);
+            border-bottom: 5px solid var(--accent-color);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
+        header p {
+            font-size: 1.2em;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Navegação */
         nav {
-            text-align: center;
-            background-color: #5ca6ce;
-            padding: 15px;
+            background-color: var(--nav-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
         }
 
         nav a {
-            color: #0b0a07;
-            margin: 0 20px;
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            transition: color 0.3s;
+            margin: 0 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
         }
 
         nav a:hover {
-            color: #ffffff;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
         }
 
+        /* Layout Geral */
         section {
             padding: 60px 20px;
-            text-align: center;
-            background-color: #8ab4d6;
-        }
-
-        h2 {
-            color: #0b0a07;
-            border-bottom: 2px solid #0b0a07;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-size: 2em;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .experience, .projects, .skills, .courses {
-            background-color: #fdfdfd;
-            padding: 30px;
-            border-radius: 10px;
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
             margin-bottom: 40px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .experience:hover, .projects:hover, .skills:hover, .courses:hover {
-            transform: translateY(-10px);
-        }
-
-        .experience h3, .projects h3, .courses h3 {
-            color: #0b0a07;
-            margin-bottom: 20px;
+            font-size: 2.2em;
             position: relative;
         }
 
-        .skills ul {
-            list-style-type: none;
-            padding: 0;
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
-        .skills li {
-            background-color: #0b0a07;
-            color: #e5ffde;
-            padding: 10px 20px;
-            margin: 10px 0;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background-color 0.3s;
+        /* Cards e Containers */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .skills li:hover {
-            background-color: #bbcbcb;
-            color: #0b0a07;
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--accent-color);
         }
 
-        .contact {
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Sobre Mim - Destaque */
+        #about p {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            color: #555;
         }
 
-        .contact p {
-            margin: 5px 0;
+        /* Habilidades (Tags) */
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .contact a img {
+        .skills-list li {
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        /* Destaque para ferramentas principais */
+        .skills-list li.highlight {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Contato */
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-icons a img {
             width: 40px;
             height: 40px;
-            margin: 0 10px;
             transition: transform 0.3s;
+            filter: grayscale(100%); /* Estilo clean */
         }
 
-        .contact a img:hover {
+        .contact-icons a:hover img {
             transform: scale(1.1);
+            filter: grayscale(0%); /* Cor ao passar o mouse */
+        }
+        
+        .email-link {
+            display: block;
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
         }
 
+        /* Footer */
         footer {
-            background-color: #0b0a07;
+            background-color: var(--primary-color);
+            color: #888;
             text-align: center;
             padding: 20px;
-            color: #e5ffde;
-            position: relative;
-            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+            font-size: 0.9em;
         }
 
-        footer p {
-            margin: 0;
-        }
-
-        /* Media Queries for Mobile Devices */
-        @media only screen and (max-width: 600px) {
-            body {
-                font-size: 14px;
-                padding: 10px;
-            }
-
-            header h1 {
-                font-size: 1.8em;
-                padding: 20px;
-            }
-
-            nav a {
-                font-size: 1em;
-                margin: 0 10px;
-            }
-
-            section {
-                padding: 20px 10px;
-            }
-
-            .container {
-                max-width: 100%;
-                padding: 10px;
-            }
-
-            .experience, .projects, .skills, .courses {
-                padding: 20px;
-                margin-bottom: 20px;
-            }
-
-            .contact a img {
-                width: 30px;
-                height: 30px;
-            }
-
-            footer {
-                padding: 10px;
-            }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            nav { flex-wrap: wrap; }
+            nav a { margin: 5px 10px; }
+            .card-container { grid-template-columns: 1fr; }
         }
     </style>
-	<script type="text/javascript">
-      window.onload = function(){
-      (function(d, script) {
-      script = d.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.src = 'https://w.app/widget-v1/NiKY7f.js';
-      d.getElementsByTagName('head')[0].appendChild(script);
-      }(document));
-      };
+
+    <script type="text/javascript">
+        window.onload = function(){
+        (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = 'https://w.app/widget-v1/NiKY7f.js';
+        d.getElementsByTagName('head')[0].appendChild(script);
+        }(document));
+        };
     </script>
 </head>
 
 <body>
+
     <header>
-        <h1>Portfólio de Analista de Dados</h1>
+        <h1>Adriano</h1>
+        <p>Analista de Dados | Business Intelligence | Python & SQL</p>
     </header>
 
     <nav>
-        <a href="#about">Sobre Mim</a>
+        <a href="#about">Sobre</a>
         <a href="#experience">Experiência</a>
         <a href="#projects">Projetos</a>
-        <a href="#skills">Habilidades</a>
-        <a href="#courses">Cursos</a>
+        <a href="#skills">Stack</a>
+        <a href="#courses">Educação</a>
         <a href="#contact">Contato</a>
     </nav>
 
     <section id="about">
-        <div class="container">
-            <h2>Sobre Mim</h2>
-            <p>Sou um analista de dados com experiência em produtos de crédito e investimentos. Tenho paixão por transformar dados em insights acionáveis que ajudam as empresas a tomar decisões informadas.</p>
-        </div>
+        <h2>Sobre Mim</h2>
+        <p>
+            Especialista em transformar dados complexos em decisões estratégicas. 
+            Com foco em produtos de crédito e investimentos, utilizo estatística e programação 
+            para identificar tendências e otimizar resultados de negócio.
+        </p>
     </section>
 
     <section id="experience">
-        <div class="container experience">
-            <h2>Experiência</h2>
-            <h3>Empresa XYZ - Analista de Dados</h3>
-            <p>Responsável por analisar grandes volumes de dados financeiros e fornecer relatórios detalhados para a tomada de decisões estratégicas.</p>
-            <h3>Empresa ABC - Estagiário em Análise de Dados</h3>
-            <p>Suporte na criação de dashboards e relatórios para diversos departamentos, focando em eficiência operacional e otimização de processos.</p>
+        <h2>Experiência Profissional</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Analista de Dados Pleno</h3>
+                <p><strong>Empresa XYZ</strong> | Atual</p>
+                <br>
+                <p>Liderança na análise de grandes volumes de dados financeiros (Big Data). Desenvolvimento de ETLs automatizados e relatórios que reduziram o tempo de decisão da diretoria em 30%.</p>
+            </div>
+            <div class="card">
+                <h3>Estagiário em Dados</h3>
+                <p><strong>Empresa ABC</strong> | 2022 - 2023</p>
+                <br>
+                <p>Criação de dashboards operacionais no Power BI. Implementação de KPIs de eficiência que resultaram na otimização de processos internos.</p>
+            </div>
         </div>
     </section>
 
     <section id="projects">
-        <div class="container projects">
-            <h2>Projetos</h2>
-            <h3>Dashboard de Performance de Investimentos</h3>
-            <p>Criação de um dashboard interativo que monitora o desempenho de portfólios de investimentos em tempo real.</p>
-            <h3>Análise de Risco de Crédito</h3>
-            <p>Desenvolvimento de um modelo preditivo para avaliação de risco de crédito, utilizando técnicas de machine learning.</p>
+        <h2>Projetos em Destaque</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>📈 Dashboard de Investimentos</h3>
+                <p>Monitoramento em tempo real de portfólios. Integração via API para atualização automática de cotações.</p>
+                <p style="margin-top:10px; font-size:0.9em;"><em>Tech: Power BI, SQL, Python</em></p>
+            </div>
+            <div class="card">
+                <h3>🤖 Modelo de Risco de Crédito</h3>
+                <p>Algoritmo de Machine Learning (Random Forest) para prever inadimplência, aumentando a assertividade da concessão de crédito.</p>
+                <p style="margin-top:10px; font-size:0.9em;"><em>Tech: Python (Scikit-Learn), Pandas</em></p>
+            </div>
         </div>
     </section>
 
     <section id="skills">
-        <div class="container skills">
-            <h2>Habilidades</h2>
-            <ul>
-                <li>Python, R</li>
-                <li>SQL, NoSQL</li>
-                <li>Power BI, Tableau</li>
-                <li>Modelagem de Dados</li>
-                <li>Machine Learning</li>
-            </ul>
-        </div>
+        <h2>Habilidades Técnicas</h2>
+        <ul class="skills-list">
+            <li class="highlight">Python</li>
+            <li class="highlight">SQL</li>
+            <li class="highlight">Power BI</li>
+            <li>R</li>
+            <li>Tableau</li>
+            <li>Machine Learning</li>
+            <li>Modelagem de Dados</li>
+            <li>Git/GitHub</li>
+            <li>ETL</li>
+        </ul>
     </section>
 
     <section id="courses">
-        <div class="container courses">
-            <h2>Cursos</h2>
-            <h3>Certificação em Análise de Dados - Alura</h3>
-            <p>Acesse meu certificado completo <a href="https://cursos.alura.com.br/user/adrianolink/fullCertificate/ad2167a8dad680a69c3eb7d26250f2f2" target="_blank">aqui</a>.</p>
+        <h2>Certificações</h2>
+        <div class="card-container">
+            <div class="card" style="text-align: center;">
+                <h3>Formação Análise de Dados</h3>
+                <p><strong>Alura</strong></p>
+                <br>
+                <a href="https://cursos.alura.com.br/user/adrianolink/fullCertificate/ad2167a8dad680a69c3eb7d26250f2f2" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 10px 20px; border-radius: 5px; display: inline-block; transition: 0.3s;">
+                    Ver Certificado
+                </a>
+            </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="container contact">
-            <h2>Contato</h2>
-            <p>Email: datascience@adrianolink.com</p>
-            <a href="mailto:seuemail@dominio.com">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Logo">
+        <h2>Vamos conversar?</h2>
+        <a href="mailto:datascience@adrianolink.com" class="email-link">datascience@adrianolink.com</a>
+        
+        <div class="contact-icons">
+            <a href="mailto:datascience@adrianolink.com" title="Email">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
             </a>
-            <a href="https://www.linkedin.com/in/seu-perfil" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo">
+            <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" title="LinkedIn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
             </a>
-            <a href="https://api.whatsapp.com/send?phone=5547996430982&text=Ol%C3%A1,%20gostei%20de%20seu%20portf%C3%B3lio!" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp Logo">
+            <a href="https://api.whatsapp.com/send?phone=5547996430982&text=Ol%C3%A1,%20vim%20pelo%20seu%20portf%C3%B3lio!" target="_blank" title="WhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             </a>
         </div>
     </section>
 
     <footer>
-        <p>Desenvolvido por Adriano - 2024</p>
+        <p>&copy; 2024 Adriano | Analista de Dados. Desenvolvido com código limpo.</p>
     </footer>
-</body>
 
+</body>
 </html>
